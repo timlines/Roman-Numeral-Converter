@@ -1,0 +1,85 @@
+function convertToRoman(num) {
+ 
+ // 1, 5, 10, 50, 100, 500, 1000
+ // I, V, X,   L,   C,   D,    M
+
+let number = num;
+let result = "";
+
+if (number >= 900){
+  for (let i = 0; i < Math.floor(number / 1000, 0); i++){
+    result = result + "M";
+  }
+  number = number % 1000;
+  if (number < 1000 && number >= 900){
+    result = result + "CM";
+    number = number % 900;
+  }
+} 
+
+if (number >= 400 && number < 900){
+  for (let i = 0; i < Math.floor(number / 500, 0); i++){
+    result = result + "D";
+  }
+  number = number % 500;
+  if (number < 500 && number >= 400){
+    result = result + "CD";
+    number = number % 400;
+  }
+}
+
+if (number >= 90 && number < 500){
+  for (let i = 0; i < Math.floor(number / 100, 0); i++){
+    result = result + "C";
+  }
+  number = number % 100;
+  if (number < 100 && number >= 90){
+    result = result + "XC";
+    number = number % 90;
+  }
+}
+
+if (number>= 40 && number < 90){
+  for (let i = 0; i < Math.floor(number / 50, 0); i++){
+    result = result + "L";
+  }
+  number = number % 50;
+  if (number < 50 && number >= 40){
+    result = result + "XL";
+    number = number % 40;
+  }
+}
+
+if (number >= 9 && number < 50){
+  for (let i = 0; i < Math.floor(number / 10, 0); i++){
+    result = result + "X";
+  }
+  number = number % 10;
+  if (number < 10 && number >= 9){
+    result = result + "IX";
+    number = number % 9;
+  }
+}
+
+if (number >= 4 && number < 10){
+    for (let i = 0; i < Math.floor(number / 5, 0); i++){
+    result = result + "V";
+  }
+  number = number % 5;
+  if (number < 5 && number >= 4){
+    result = result + "IV";
+    number = number % 4;
+  }
+}
+
+if (number > 0 && number < 5){
+    for (let i = 0; i < Math.floor(number, 0); i++){
+      result = result + "I";
+    }
+  number = number % 1;
+}
+
+return result;
+}
+
+console.log(convertToRoman(649));
